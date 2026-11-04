@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: customer-churn-api
+    runtime: docker
+    plan: free
+
+    # Health check endpoint
+    healthCheckPath: /health
+
+    # Environment variables
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+
+      - key: MODEL_PATH
+        value: models/churn_pipeline.joblib
